@@ -36,6 +36,11 @@ const workoutSchema = new Schema({
             trim: true,
             required: "Enter sets"
         },
+        distance:{
+          type: Number,
+          trim: true,
+          required: "Enter distance"
+      },
   }
 ],
   day: {
@@ -43,6 +48,17 @@ const workoutSchema = new Schema({
     default: Date.now
   }
 });
+
+workoutSchema.methods.totalDuration= function(){
+  return this.totalDur = this.exercises.reduce((total, exercise)=>
+  {
+    return total + exercise.duration;
+  },0);
+  console.log(this.totalDur)
+  };
+
+
+
 
 const Workout = mongoose.model("Workout", workoutSchema);
 
