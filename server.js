@@ -22,10 +22,6 @@ else{
 
 }
 
-
-
-
-
 // routes
 app.use(require("./routes/api.js"));
 app.use(require("./routes/html-routes.js"));
